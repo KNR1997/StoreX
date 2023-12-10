@@ -4,6 +4,7 @@ import { toRefs } from 'vue';
 
 const props = defineProps({ product: Object });
 const { product } = toRefs(props)
+console.log(props);
 </script>
 
 <template>

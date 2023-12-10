@@ -21,7 +21,7 @@ const isAlreadyInCart = computed(() => {
     if (res) return true
     return false
 })
-console.log(product.title)
+console.log(props.product)
 </script>
 
 <template>
@@ -50,7 +50,8 @@ console.log(product.title)
                                 :href="route('address.index')"
                                 class="flex items-center text-xs font-extrabold text-teal-700 hover:text-red-600 cursor-pointer"
                             >
-                                <MapMarkerOutlineIcon :size="17" /> Delivery to {{ $page.props.auth.user.first_name }} - {{ $page.props.auth.address.postcode }}
+                                <MapMarkerOutlineIcon :size="17" />
+<!--                                Delivery to {{ $page.props.auth.user.first_name }} - {{ $page.props.auth.address.postcode }}-->
                             </Link>
                             <Link
                                 v-else

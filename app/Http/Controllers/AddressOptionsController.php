@@ -9,22 +9,12 @@ use Inertia\Inertia;
 
 class AddressOptionsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return Inertia::render('Address/Add');
+        return Inertia::render('Address/AddCopy');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(AddressOptionsStoreRequest $request)
     {
         try {
@@ -45,12 +35,6 @@ class AddressOptionsController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         try {

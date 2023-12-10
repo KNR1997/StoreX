@@ -1,16 +1,14 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import {Head, Link, useForm, usePage} from '@inertiajs/vue3';
-import {toRefs} from 'vue'
-import MapMarkerOutlineIcon from 'vue-material-design-icons/MapMarkerOutline.vue'
-import PlusIcon from 'vue-material-design-icons/Plus.vue'
-import InputLabel from '@/Components/InputLabel.vue';
-import TextInput from '@/Components/TextInput.vue';
+import TextInput from "@/Components/TextInput.vue";
+import InputLabel from "@/Components/InputLabel.vue";
+import {router, usePage} from "@inertiajs/vue3";
+import {reactive} from "vue";
 
-const form = useForm({
+const form = reactive({
     country: 'United Kingdom',
-    first_name: usePage().props.value.auth.user.first_name,
-    last_name: usePage().props.value.auth.user.last_name,
+    first_name: usePage().props.auth.user.first_name,
+    last_name: usePage().props.auth.user.last_name,
     addr1: '',
     addr2: '',
     city: '',
@@ -18,16 +16,19 @@ const form = useForm({
 })
 
 const submit = () => {
-    form.post(route('address_options.store'), {
+    console.log('submit')
+    router.post(route('address_options.store', form), {
         onFinish: () => route('address.index'),
     })
 }
+// function submit() {
+//     router.post('/users', form)
+// }
 
 </script>
 
 <template>
     <Head title="Address"/>
-
     <AuthenticatedLayout>
         <div class="mt-8"></div>
 
@@ -52,7 +53,7 @@ const submit = () => {
                     "
                     name="country"
                 >
-                    <option selected value="United Kingdom">United Kingdom</option>
+                    <option selected value="United Kingdom">Sri Lanka</option>
                     <option value="United States">United States</option>
                     <option value="Germany">Germany</option>
                     <option value="France">France</option>
@@ -134,6 +135,7 @@ const submit = () => {
                     </button>
                 </div>
             </form>
+
         </div>
     </AuthenticatedLayout>
 </template>
