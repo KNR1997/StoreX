@@ -17,7 +17,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        $stripe = new \Stripe\StripeClient('sk_test_51MJyvCEAgQFECaeFdof95XMEGHxLe8Bdy1nnl1ihb4aeM5qkg67OD9D2qxAllek8ZtxoENHtJvXq5QYfZH9AkGFu000g1c6YZe');
+        $stripe = new \Stripe\StripeClient('sk_test_51NDqe9Lu4HJsIcy5beNeLBon2poQU3INNajQr0GPJsr2OaVkNQ7qHqL0x1BvakSSKdtIYSjIxe9OMgsKnVe9LEeW00MuFd39FN');
 
         $order = Order::where('user_id', '=', auth()->user()->id)
             ->where('payment_intent', null)
